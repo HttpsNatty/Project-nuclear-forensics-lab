@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interação da Radioatividade com a Matéria</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="hero">
+        <div>
+            <span class="tag">Tema 4 • Física Nuclear</span>
+            <h1>Interação da Radioatividade com a Matéria</h1>
+            <p>Simule como radiações alfa, beta e gama atravessam materiais, como a blindagem reduz a dose e como um
+                detector Geiger reage à distância da fonte.</p>
+        </div>
+        <div class="atom" aria-hidden="true">☢</div>
+    </header>
+
+    <nav class="tab-nav" aria-label="Navegação dos simuladores">
+        <button class="tab-btn is-active" type="button" data-tab="blindagem">Blindagem</button>
+        <button class="tab-btn" type="button" data-tab="geiger">Contador Geiger</button>
+        <button class="tab-btn" type="button" data-tab="corpo">Penetração no corpo</button>
+        <button class="tab-btn" type="button" data-tab="forense">Laboratório Forense</button>
+    </nav>
+
+    <main>
+        <section class="card simulator tab-panel panel-stack is-active" data-panel="blindagem">
+            <div class="section-title">
+                <h2>1. Simulador de blindagem</h2>
+                <p>Escolha a radiação e o material. Depois clique em emitir.</p>
+            </div>
+
+            <div class="controls">
+                <label>Radiação
+                    <select id="radiationType">
+                        <option value="alpha">Alfa (α)</option>
+                        <option value="beta">Beta (β)</option>
+                        <option value="gamma">Gama (γ)</option>
+                    </select>
+                </label>
+                <label>Material
+                    <select id="materialType">
+                        <option value="paper">Papel</option>
+                        <option value="aluminum">Alumínio</option>
+                        <option value="lead">Chumbo</option>
+                        <option value="concrete">Concreto</option>
+                    </select>
+                </label>
+                <label>Espessura
+                    <input id="thickness" type="range" min="1" max="10" value="4" />
+                    <span id="thicknessLabel">4 cm</span>
+                </label>
+                <button id="emitBtn">Emitir radiação</button>
+            </div>
+
+            <div class="scene">
+                <div class="source">☢<small>Fonte</small></div>
+                <div id="particle" class="particle alpha">α</div>
+                <div id="shield" class="shield paper"><span id="shieldLabel">Papel</span></div>
+                <div class="detector"><span>📟</span><small>Detector</small></div>
+            </div>
+
+            <div class="result">
+                <div>
+                    <strong id="resultTitle">Pronto para simular</strong>
+                    <p id="resultText">A radiação alfa tem baixa penetração e normalmente é bloqueada por papel ou pele.
+                    </p>
+                </div>
+                <div class="meter">
+                    <span>Dose transmitida</span>
+                    <div class="bar">
+                        <div id="doseBar"></div>
+                    </div>
+                    <strong id="dosePercent">0%</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="tab-panel panel-stack" data-panel="geiger">
+            <article class="card">
+        <div class="geiger-heading">
+          <h2>2. Contador Geiger</h2>
+          <button class="sound-toggle" id="geigerSoundBtn" type="button" aria-pressed="false">Som desligado</button>
+        </div>
+                <p>Aproxime o detector da fonte. Quanto menor a distância, maior a taxa de contagem.</p>
+                <label>Distância da fonte
+                    <input id="distance" type="range" min="1" max="10" value="7" />
+                </label>
+                <div class="geiger">
+                    <div class="geiger-display" id="geigerDisplay">tic... tic...</div>
+                    <div class="pulse" id="pulse"></div>
+                </div>
+                <p class="note" id="geigerNote">Distância: 7 m • Contagem baixa</p>
+            </article>
+
+        </section>
+
+        <section class="card body-panel tab-panel panel-stack" data-panel="corpo">
+            <h2>3. Penetração no corpo</h2>
+            <p>Representação simplificada para explicar risco externo e interno.</p>
+            <div class="body-demo">
+                <button data-body="alpha">α</button>
+                <button data-body="beta">β</button>
+                <button data-body="gamma">γ</button>
+            </div>
+            <div class="body-box">
+                <div class="skin">Pele</div>
+                <div class="tissue">Tecidos internos</div>
+                <div id="bodyRay" class="body-ray alpha-ray"></div>
+            </div>
+            <p id="bodyText" class="note">Alfa quase não atravessa a pele, mas pode ser perigosa se ingerida ou inalada.
+            </p>
+        </section>
+
+        <section class="card tab-panel panel-stack forensic-panel" data-panel="forense">
+            <div class="section-title">
+                <span class="tag">4. • Laboratório Forense</span>
+                <h2>Laboratório Forense Nuclear</h2>
+                <p>Simule uma investigação pericial para localizar, medir e classificar uma fonte radioativa
+                    desconhecida.</p>
+            </div>
+
+            <div class="forensic-case">
+                <div>
+                    <strong>Caso nº 001 — Caixa suspeita em área restrita</strong>
+                    <p>Uma caixa foi encontrada em uma área controlada. O perito deve localizar a fonte radioativa,
+                        medir a taxa de contagem e testar blindagens para inferir o tipo de radiação.</p>
+                </div>
+            </div>
+
+            <div class="forensic-layout">
+                <div class="forensic-field">
+                    <div class="forensic-room" id="forensicRoom" aria-label="Cena pericial simulada">
+                        <div class="room-grid"></div>
+                        <div class="room-object object-crate"></div>
+                        <div class="room-object object-barrel"></div>
+                        <div class="room-object object-case"></div>
+                        <div class="room-source" id="forensicSource" aria-hidden="true">☢</div>
+                        <button class="forensic-detector" id="forensicDetector" type="button"
+                            aria-label="Detector Geiger móvel">📟</button>
+                    </div>
+
+                    <div class="movement-pad" aria-label="Controles de movimento do detector">
+                        <button type="button" class="move-btn" data-move="up">Cima</button>
+                        <div class="movement-row">
+                            <button type="button" class="move-btn" data-move="left">Esquerda</button>
+                            <button type="button" class="move-btn" data-move="down">Baixo</button>
+                            <button type="button" class="move-btn" data-move="right">Direita</button>
+                        </div>
+                    </div>
+
+                    <button class="primary-action" id="locateSourceBtn" type="button" disabled>Fonte localizada —
+                        iniciar análise</button>
+                </div>
+
+                <div class="forensic-readout">
+                    <div class="readout-card">
+                        <h3>Contador Geiger</h3>
+                        <div class="readout-grid">
+                            <div><span>CPM</span><strong id="forensicCpm">0</strong></div>
+                            <div><span>CPS</span><strong id="forensicCps">0.0</strong></div>
+                            <div><span>Dose</span><strong id="forensicDose">0.0 µSv/h</strong></div>
+                            <div><span>Status</span><strong id="forensicStatus" class="status-pill">Normal</strong>
+                            </div>
+                        </div>
+                        <div class="tick-line" id="forensicTicks">tic... tic...</div>
+                        <p class="note" id="forensicHint">Mova o detector para localizar a fonte escondida.</p>
+                    </div>
+
+                    <div id="shieldStage" class="forensic-stage" hidden>
+                        <h3>Etapa 2 — Teste de blindagem</h3>
+                        <p>Fonte radioativa → Blindagem → Detector</p>
+                        <div class="shield-choice" role="group" aria-label="Escolha a blindagem">
+                            <button type="button" class="shield-btn is-active" data-shield="none">Sem blindagem</button>
+                            <button type="button" class="shield-btn" data-shield="paper">Papel</button>
+                            <button type="button" class="shield-btn" data-shield="aluminum">Alumínio</button>
+                            <button type="button" class="shield-btn" data-shield="lead">Chumbo</button>
+                        </div>
+                        <button class="primary-action secondary-action" id="testShieldBtn" type="button">Testar
+                            blindagem</button>
+                        <table class="forensic-table" aria-label="Tabela de blindagens e contagens medidas">
+                            <thead>
+                                <tr>
+                                    <th>Blindagem</th>
+                                    <th>Contagem medida</th>
+                                    <th>Interpretação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-shield-row="none" class="is-selected">
+                                    <td>Sem blindagem</td>
+                                    <td>3200 cps</td>
+                                    <td>Referência inicial da cena.</td>
+                                </tr>
+                                <tr data-shield-row="paper">
+                                    <td>Papel</td>
+                                    <td>3000 cps</td>
+                                    <td>Papel quase não reduziu: não parece alfa.</td>
+                                </tr>
+                                <tr data-shield-row="aluminum">
+                                    <td>Alumínio</td>
+                                    <td>180 cps</td>
+                                    <td>Alumínio reduziu muito: provável beta.</td>
+                                </tr>
+                                <tr data-shield-row="lead">
+                                    <td>Chumbo</td>
+                                    <td>20 cps</td>
+                                    <td>Chumbo reduziu quase tudo: radiação altamente atenuada.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="note" id="shieldOutcome">Escolha uma blindagem para registrar a medição.</p>
+                    </div>
+
+                    <div id="conclusionStage" class="forensic-stage" hidden>
+                        <h3>Etapa 3 — Conclusão do perito</h3>
+                        <p>Com base nos testes de blindagem, qual é o provável tipo de radiação?</p>
+                        <div class="conclusion-choice" role="group" aria-label="Conclusão do perito">
+                            <button type="button" class="conclusion-btn" data-conclusion="alpha">Alfa</button>
+                            <button type="button" class="conclusion-btn" data-conclusion="beta">Beta</button>
+                            <button type="button" class="conclusion-btn" data-conclusion="gamma">Gama</button>
+                        </div>
+                        <p class="note" id="conclusionFeedback">Selecione a hipótese mais provável.</p>
+                        <button class="primary-action secondary-action" id="emitReportBtn" type="button" disabled>Emitir
+                            laudo</button>
+                    </div>
+
+                    <div id="reportStage" class="forensic-stage" hidden>
+                        <h3>Etapa 4 — Laudo pericial</h3>
+                        <div id="reportOutput" class="report-placeholder">
+                            <p class="note">O laudo será gerado após a conclusão correta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forensic-explanation">
+                <h3>O que isso tem a ver com forense?</h3>
+                <p>Na perícia nuclear, o objetivo não é apenas saber que existe radiação, mas localizar a fonte, medir a
+                    intensidade e usar o padrão de atenuação em diferentes materiais para inferir características da
+                    emissão. Esses dados ajudam a preservar a cena, proteger os peritos e orientar a identificação
+                    posterior da fonte.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Tema 4 • Desenvolvidor por Natty
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
