@@ -672,6 +672,7 @@ input[type="range"]::-moz-range-thumb {
   position: absolute;
   top: 0;
   bottom: 0;
+  padding-top: 26px;
   display: grid;
   place-items: center;
   font-weight: 900;
@@ -693,7 +694,7 @@ input[type="range"]::-moz-range-thumb {
 .body-ray {
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: calc(64% + 2px);
   height: 8px;
   transform: translateY(-50%);
   background: #fff;
