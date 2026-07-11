@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Nuclear forensics favicon">
+  <rect width="64" height="64" fill="#22395f"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#eaf3ff" stroke-width="4"/>
+  <g>
+    <animateTransform attributeName="transform" type="rotate" from="0 32 32" to="360 32 32" dur="4s" repeatCount="indefinite"/>
+    <g transform="translate(32 32)">
+      <path d="M0-18A18 18 0 0 1 14.8-8.1L7.5-4.2A10 10 0 0 0 0-12Z" fill="#4e6f6a"/>
+      <path d="M14.8-8.1A18 18 0 0 1 14.8 8.1L7.5 4.2A10 10 0 0 0 7.5-4.2Z" fill="#dfeeff"/>
+      <path d="M14.8 8.1A18 18 0 0 1 0 18V12A10 10 0 0 0 7.5 4.2Z" fill="#4e6f6a"/>
+      <path d="M0 18A18 18 0 0 1-14.8 8.1L-7.5 4.2A10 10 0 0 0 0 12Z" fill="#dfeeff"/>
+      <path d="M-14.8 8.1A18 18 0 0 1-14.8-8.1L-7.5-4.2A10 10 0 0 0-7.5 4.2Z" fill="#4e6f6a"/>
+      <path d="M-14.8-8.1A18 18 0 0 1 0-18V-12A10 10 0 0 0-7.5-4.2Z" fill="#dfeeff"/>
+    </g>
+    <circle cx="32" cy="32" r="5.8" fill="#f6fbff"/>
+    <circle cx="32" cy="32" r="8.2" fill="none" stroke="#243a5f" stroke-width="2" opacity="0.9"/>
+  </g>
+</svg>
