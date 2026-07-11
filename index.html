@@ -117,10 +117,24 @@
 
         <section class="card tab-panel panel-stack forensic-panel" data-panel="forense">
             <div class="section-title">
-                <span class="tag">Laboratório Forense</span>
-                <h2 class="tab-heading">Laboratório Forense Nuclear</h2>
-                <p>Simule uma investigação pericial para localizar, medir e classificar uma fonte radioativa
-                    desconhecida.</p>
+                <div>
+                    <span class="tag">Laboratório Forense</span>
+                    <h2 class="tab-heading">Laboratório Forense Nuclear</h2>
+                    <p>Simule uma investigação pericial para localizar, medir e classificar uma fonte radioativa
+                        desconhecida.</p>
+                </div>
+                <button class="help-btn forensic-help-trigger" id="forensicHelpBtn" type="button"
+                    aria-expanded="false" aria-controls="forensicHelpPanel"
+                    aria-label="Explicar o cálculo do laboratório forense">?</button>
+            </div>
+
+            <div class="forensic-help-panel" id="forensicHelpPanel" hidden>
+                <strong>Como o laboratório forense calcula a leitura?</strong>
+                <p>O painel usa uma aproximação simples: a contagem em cps cai com a distância ao quadrado da fonte.
+                    A fórmula é <span>cps = 4 + 450000 / (distância² + 900)</span>.</p>
+                <p>Depois disso, o sistema converte para <span>cpm = cps × 60</span> e estima a dose em <span>µSv/h = cps × 0,05</span>.
+                    É um modelo didático, não uma medição real.</p>
+                <p>Em termos simples, a aproximação usada é <span>1 µSv/h ≈ 10⁻⁶ J/kg por hora</span>, ou seja, uma quantidade muito pequena de energia por massa ao longo de uma hora.</p>
             </div>
 
             <div class="forensic-case">

@@ -20,6 +20,8 @@ function updateRangeFill(input) {
 
 const tabButtons = document.querySelectorAll('[data-tab]');
 const tabPanels = document.querySelectorAll('[data-panel]');
+const forensicHelpBtn = document.getElementById('forensicHelpBtn');
+const forensicHelpPanel = document.getElementById('forensicHelpPanel');
 
 function activateTab(tabName) {
   tabButtons.forEach(button => {
@@ -36,6 +38,14 @@ function activateTab(tabName) {
 tabButtons.forEach(button => {
   button.addEventListener('click', () => activateTab(button.dataset.tab));
 });
+
+if (forensicHelpBtn && forensicHelpPanel) {
+  forensicHelpBtn.addEventListener('click', () => {
+    const isOpen = !forensicHelpPanel.hidden;
+    forensicHelpPanel.hidden = isOpen;
+    forensicHelpBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+}
 
 activateTab('blindagem');
 

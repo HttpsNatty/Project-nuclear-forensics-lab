@@ -52,6 +52,63 @@ h1 {
   animation: spin 12s linear infinite;
 }
 
+.help-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: linear-gradient(135deg, #f8cf63, #ff9d4a);
+  color: #1d2433;
+  font-size: 1.85rem;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(255, 157, 74, .28);
+  flex: 0 0 auto;
+}
+
+.forensic-help-trigger {
+  margin-left: auto;
+}
+
+.forensic-panel .section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.forensic-help-panel {
+  margin: 0 0 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, .94);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .2);
+  color: var(--text);
+}
+
+.forensic-help-panel strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.forensic-help-panel p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.forensic-help-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.forensic-help-panel span {
+  color: var(--text);
+  font-weight: 800;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
