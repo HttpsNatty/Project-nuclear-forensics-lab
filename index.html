@@ -11,7 +11,7 @@
 <body>
     <header class="hero">
         <div>
-            <span class="tag">Tema 4 • Física Nuclear</span>
+            <span class="tag">Física Nuclear</span>
             <h1>Interação da Radioatividade com a Matéria</h1>
             <p>Simule como radiações alfa, beta e gama atravessam materiais, como a blindagem reduz a dose e como um
                 detector Geiger reage à distância da fonte.</p>
@@ -29,7 +29,7 @@
     <main>
         <section class="card simulator tab-panel panel-stack is-active" data-panel="blindagem">
             <div class="section-title">
-                <h2>1. Simulador de blindagem</h2>
+                <h2 class="tab-heading">Simulador de blindagem</h2>
                 <p>Escolha a radiação e o material. Depois clique em emitir.</p>
             </div>
 
@@ -82,7 +82,7 @@
         <section class="tab-panel panel-stack" data-panel="geiger">
             <article class="card">
         <div class="geiger-heading">
-          <h2>2. Contador Geiger</h2>
+                    <h2 class="tab-heading">Contador Geiger</h2>
           <button class="sound-toggle" id="geigerSoundBtn" type="button" aria-pressed="false">Som desligado</button>
         </div>
                 <p>Aproxime o detector da fonte. Quanto menor a distância, maior a taxa de contagem.</p>
@@ -99,7 +99,7 @@
         </section>
 
         <section class="card body-panel tab-panel panel-stack" data-panel="corpo">
-            <h2>3. Penetração no corpo</h2>
+            <h2 class="tab-heading">Penetração no corpo</h2>
             <p>Representação simplificada para explicar risco externo e interno.</p>
             <div class="body-demo">
                 <button data-body="alpha">α</button>
@@ -117,8 +117,8 @@
 
         <section class="card tab-panel panel-stack forensic-panel" data-panel="forense">
             <div class="section-title">
-                <span class="tag">4. • Laboratório Forense</span>
-                <h2>Laboratório Forense Nuclear</h2>
+                <span class="tag">Laboratório Forense</span>
+                <h2 class="tab-heading">Laboratório Forense Nuclear</h2>
                 <p>Simule uma investigação pericial para localizar, medir e classificar uma fonte radioativa
                     desconhecida.</p>
             </div>
@@ -248,7 +248,7 @@
     </main>
 
     <footer>
-        Tema 4 • Desenvolvidor por Natty
+        Desenvolvidor por Natty
     </footer>
 
     <script src="script.js"></script>

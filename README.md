@@ -1,6 +1,6 @@
 # Simulação — Interação da Radioatividade com a Matéria
 
-Mini-site para apresentação do Tema 4.
+Mini-site para apresentação.
 
 ## Como abrir
 Abra o arquivo `index.html` no navegador.
